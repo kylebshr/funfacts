@@ -11,9 +11,12 @@ import UIKit
 
 class FactGenerator {
 
+    // An array of facts to cycle through
     var facts = [Fact]()
+    // The index of the fact we're currectly on
     var currentIndex = 0
 
+    // The init method adds all the facts from http://kylebashour.com/facts
     init() {
         facts += [
             Fact(text: "'Facebook Addiction Disorder' is a mental disorder identified by Psychologists.", color: UIColor(red: 217/255.0, green: 56/255.0, blue: 41/255.0, alpha: 1), textColor: .white),
@@ -27,11 +30,12 @@ class FactGenerator {
         ]
     }
 
+    // This function increments current index and returns that next fact
     func nextFact() -> Fact {
-        let nextFact = facts[++currentIndex % facts.count]
-        return nextFact
+        return facts[++currentIndex % facts.count]
     }
 
+    // This function returns the current fact without incrementing
     func currentFact() -> Fact {
         return facts[currentIndex % facts.count]
     }
